@@ -1,90 +1,147 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello Rigo with Vanilla.js</title>
-    <link rel="shortcut icon" href="./assets/img/4geeks.ico" />
-    <script
-      src="https://kit.fontawesome.com/072e5df971.js"
-      crossorigin="anonymous"
-    ></script>
+    <title>Profile Card</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
-
   <body>
-    <ul class="filters">
-      <li>
-        <label>Include Cover</label>
-        <select class="picker" for="includeCover">
-          <option value="">Include Cover</option>
-          <option value="true">True</option>
-          <option value="false">False</option>
-        </select>
-      </li>
-      <li>
-        <label>Name</label>
-        <input class="picker" for="name" type="text" />
-      </li>
-      <li>
-        <label>Last Name</label>
-        <input class="picker" for="lastName" type="text" />
-      </li>
-      <li>
-        <label>S.M. Position</label>
-        <select class="picker" for="socialMediaPosition">
-          <option value="position-left">Left</option>
-          <option value="position-right">Right</option>
-        </select>
-      </li>
-      <li>
-        <label>Twitter</label>
-        <input class="picker" for="twitter" type="text" />
-      </li>
-      <li>
-        <label>Github</label>
-        <input class="picker" for="github" type="text" />
-      </li>
-      <li>
-        <label>LinkedIn</label>
-        <input class="picker" for="linkedin" type="text" />
-      </li>
-      <li>
-        <label>Instagram</label>
-        <input class="picker" for="instagram" type="text" />
-      </li>
-      <li>
-        <label>Role</label>
-        <select class="picker" for="role">
-          <option value="">null</option>
-          <option value="Web Developer">Web Developer</option>
-          <option value="Floor Planner">Floor Planner</option>
-          <option value="Technical Writter">Technical Writter</option>
-        </select>
-      </li>
-      <li>
-        <label>City</label>
-        <select class="picker" for="city">
-          <option value="">null</option>
-          <option value="Miami">Miami</option>
-          <option value="Munich">Munich</option>
-          <option value="Caracas">Caracas</option>
-          <option value="Toronto">Toronto</option>
-        </select>
-      </li>
-      <li>
-        <label>Country</label>
-        <select class="picker" for="country">
-          <option value="">null</option>
-          <option value="USA">USA</option>
-          <option value="Germany">Germany</option>
-          <option value="Canada">Canada</option>
-          <option value="Venezuela">Venezuela</option>
-        </select>
-      </li>
-    </ul>
-    <div id="widget_content"></div>
+    <div class="container">
+      <div class="inputs-section">
+        <h2>Edita tu perfil</h2>
 
-    <!-- do not remove this bundle.js tag -->
-    <script type="text/javascript" src="/main.bundle.js"></script>
+        <div class="form-group">
+          <label>Nombre</label>
+          <input
+            type="text"
+            class="picker"
+            for="name"
+            placeholder="Tu nombre"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Apellido</label>
+          <input
+            type="text"
+            class="picker"
+            for="lastName"
+            placeholder="Tu apellido"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Rol</label>
+          <input
+            type="text"
+            class="picker"
+            for="role"
+            placeholder="Ej: Web Developer"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Ciudad</label>
+          <input
+            type="text"
+            class="picker"
+            for="city"
+            placeholder="Tu ciudad"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>País</label>
+          <input
+            type="text"
+            class="picker"
+            for="country"
+            placeholder="Tu país"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Twitter (usuario)</label>
+          <input type="text" class="picker" for="twitter" placeholder="Sin @" />
+        </div>
+
+        <div class="form-group">
+          <label>GitHub (usuario)</label>
+          <input
+            type="text"
+            class="picker"
+            for="github"
+            placeholder="Tu usuario"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>LinkedIn (usuario)</label>
+          <input
+            type="text"
+            class="picker"
+            for="linkedin"
+            placeholder="Tu usuario"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Instagram (usuario)</label>
+          <input
+            type="text"
+            class="picker"
+            for="instagram"
+            placeholder="Sin @"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>URL del Avatar</label>
+          <input
+            type="text"
+            class="picker"
+            for="avatarURL"
+            placeholder="https://..."
+          />
+        </div>
+
+        <div class="form-group">
+          <label>URL de la Portada</label>
+          <input
+            type="text"
+            class="picker"
+            for="background"
+            placeholder="https://..."
+          />
+        </div>
+
+        <div class="form-group">
+          <label>¿Mostrar portada?</label>
+          <select class="picker" for="includeCover">
+            <option value="true">Sí</option>
+            <option value="false">No</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Posición de redes sociales</label>
+          <select class="picker" for="socialMediaPosition">
+            <option value="position-right">Derecha</option>
+            <option value="position-left">Izquierda</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="card-section">
+        <div id="widget_content"></div>
+      </div>
+    </div>
+
+    <div id="app"></div>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
